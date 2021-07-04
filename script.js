@@ -1,14 +1,20 @@
-let canvasEl = document.getElementById("myCanvas");
-let ctx = canvasEl.getContext("2d");
+const canvasEl = document.getElementById("myCanvas");
+const ctx = canvasEl.getContext("2d");
 let position = {x:0, y:0};
 let {x, y} = position;
-let fontColor = "#FF0000"
-let boardColor = "#0000FF"
-let width = 20;
+
+let fontColor = "#FF0000";
+let boardColor = "#bec2c1";
+let width = 5;
+
+const offsetHeight = document.querySelector('.navbar').clientHeight;
+const offsetWidth = document.querySelector('#menu').clientWidth;
+// const offsetHeight = 30;
+// const offsetWidth = 40;
 
 function resize(){
-    ctx.canvas.height = window.innerHeight-10;
-    ctx.canvas.width = window.innerWidth-179;
+    ctx.canvas.height = window.innerHeight - offsetHeight-10;
+    ctx.canvas.width = window.innerWidth - offsetWidth-10;
     ctx.fillStyle = boardColor;
     ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
 }
@@ -21,8 +27,8 @@ canvasEl.addEventListener('mouseenter', setPos);
 canvasEl.addEventListener('mousemove', draw);
 
 function setPos(event){
-    x = event.clientX;
-    y = event.clientY;
+    x = event.clientX - offsetWidth;
+    y = event.clientY - offsetHeight;
 }
 
 function draw(event){
@@ -39,3 +45,5 @@ function draw(event){
     ctx.stroke();
     ctx.closePath();
 }
+
+
