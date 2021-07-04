@@ -1,5 +1,5 @@
 const canvasEl = document.getElementById("myCanvas");
-const ctx = canvasEl.getContext("2d");
+let ctx = canvasEl.getContext("2d");
 let position = {x:0, y:0};
 let {x, y} = position;
 
