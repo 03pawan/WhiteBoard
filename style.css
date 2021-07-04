@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+canvas{
+    border: 2px solid red;
+    margin: 0;
+    padding: 0;
+    display: inline;
+    position: absolute;
+    left: 23vh;
+    top: 0vh;
+
+   
+}
+#menu{
+    display: flex;
+    justify-self: center;
+    flex-direction: column;
+    height: 99vh;
+    width: 23vh;
+    border: 2px solid red;
+}
