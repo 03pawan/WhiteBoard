@@ -11,7 +11,8 @@ let eraserWidth = 10;
 const offsetHeight = document.querySelector('.navbar').clientHeight;
 const offsetWidth = document.querySelector('#menu').clientWidth;
 
-const canvas
+const canvasHeight = window.innerHeight - offsetHeight-2;
+const canvasWidth = window.innerWidth - offsetWidth-2
 
 // const offsetHeight = 30;
 // const offsetWidth = 40;
@@ -53,6 +54,8 @@ function draw(event){
 }
 
 function eraser(event){
+    // ctx.clearRect(0, 0, 400, 400);
+
     ctx.beginPath();
     setPos(event)
     ctx.arc(x, y, eraserWidth, 0, Math.PI*2);
@@ -61,7 +64,6 @@ function eraser(event){
     ctx.fill();
     ctx.stroke();
     ctx.closePath();
-    ctx.clearRect(0,0,)
 }
 
 canvasEl.addEventListener('mousemove', eraser);
