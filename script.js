@@ -53,20 +53,19 @@ function draw(event){
     ctx.closePath();
 }
 
-function eraser(event){
-    // ctx.clearRect(0, 0, 400, 400);
+// function drawEraser(event){
+//     ctx.beginPath();
+//     setPos(event)
+//     ctx.arc(x, y, eraserWidth, 0, Math.PI*2);
+//     ctx.fillStyle = boardColor;
+//     ctx.strokeStyle = "black";
+//     ctx.fill();
+//     ctx.stroke();
+//     ctx.closePath();
+//     ctx.clearRect(0, 0, canvas.width, canvas.height);
+// }
 
-    ctx.beginPath();
-    setPos(event)
-    ctx.arc(x, y, eraserWidth, 0, Math.PI*2);
-    ctx.fillStyle = boardColor;
-    ctx.strokeStyle = "black";
-    ctx.fill();
-    ctx.stroke();
-    ctx.closePath();
-}
-
-canvasEl.addEventListener('mousemove', eraser);
+// canvasEl.addEventListener('mousemove', drawEraser);
 
 // function eraser(event){
 //     ctx.beginPath();
