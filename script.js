@@ -18,16 +18,27 @@ let eraserWidth = 10;
 const offsetHeight = document.querySelector('.navbar').clientHeight;
 const offsetWidth = document.querySelector('#menu').clientWidth;
 
+
 const canvasHeight = window.innerHeight - offsetHeight - 2;
 const canvasWidth = window.innerWidth - offsetWidth - 2
+
+const canvasHeight = window.innerHeight - offsetHeight-2;
+const canvasWidth = window.innerWidth - offsetWidth-2
+
 
 // const offsetHeight = 30;
 // const offsetWidth = 40;
 
 
+
 function resize() {
     ctx.canvas.height = window.innerHeight - offsetHeight - 2;
     ctx.canvas.width = window.innerWidth - offsetWidth - 2;
+
+function resize(){
+    ctx.canvas.height = window.innerHeight - offsetHeight-2;
+    ctx.canvas.width = window.innerWidth - offsetWidth-2;
+
     ctx.fillStyle = boardColor;
     ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
 }
@@ -42,6 +53,7 @@ canvasEl.addEventListener('mousemove', draw);
 function setPos(event) {
     x = event.clientX - offsetWidth;
     y = event.clientY - offsetHeight;
+    console.log(x, y);
 }
 
 function draw(event) {
@@ -58,6 +70,7 @@ function draw(event) {
     ctx.stroke();
     ctx.closePath();
 }
+
 
 //start of color picker
 let colorSelector = document.querySelector('.color-selector');
@@ -88,6 +101,7 @@ function changeColor() {
     colorSelector.style.visibility = 'hidden';
 }
 //end of color picker
+
 
 
 
