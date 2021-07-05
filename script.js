@@ -1,13 +1,19 @@
 const canvasEl = document.getElementById("myCanvas");
 const ctx = canvasEl.getContext("2d");
-let position = { x: 0, y: 0 };
-let { x, y } = position;
+let position = {
+    x: 0,
+    y: 0
+};
+let {
+    x,
+    y
+} = position;
 
 const offsetHeight = document.querySelector('.navbar').clientHeight;
 const offsetWidth = document.querySelector('#menu').clientWidth;
 
 const canvasHeight = window.innerHeight - offsetHeight - 2;
-const canvasWidth = window.innerWidth - offsetWidth -2;
+const canvasWidth = window.innerWidth - offsetWidth - 2;
 
 const pencilEl = document.querySelector("#pencil-btn");
 const eraserEl = document.querySelector("#eraser-btn");
@@ -15,6 +21,7 @@ const clearEl = document.querySelector("#clear-all");
 const shapesEl = document.querySelector("#shapes-btn");
 const backgroundColorEl = document.querySelector("#background-color-btn");
 
+ let sflag=0;
 let isPencil = true;
 let isEraser = false;
 let isCircle = false;
@@ -62,12 +69,21 @@ function setPos(event) {
     // console.log(x, y);
 }
 
+//pencil-slectors
+let strokeSize = document.querySelector('.stroke-size-selector');
+let backPencil = document.querySelector('.pencile-back');
 pencilEl.addEventListener('click', () => {
     isPencil = true;
     isEraser = false;
     isSquare = false;
     isCircle = false;
-})
+    changeStroke();
+});
+
+
+// colorChanger.addEventListener('click', changeColor);
+// colorSelector.addEventListener('click', selectColor);
+// csBack.addEventListener('click', lockcolorf);
 
 eraserEl.addEventListener('click', () => {
     isPencil = false;
@@ -119,8 +135,8 @@ function clearAllKeydown(event) {
     }
 }
 
-function pencilColorSelectorKeydown(event){
-    if(event.key == "o" || event.key == "O"){
+function pencilColorSelectorKeydown(event) {
+    if (event.key == "o" || event.key == "O") {
         colorChanger.click();
     }
 }
@@ -175,8 +191,8 @@ function WidthModifyKeydown(event) {
     }
 }
 
-function undoKeydown(event){
-    if(event.key == 'u' || event.key =='U'){
+function undoKeydown(event) {
+    if (event.key == 'u' || event.key == 'U') {
         undo();
     }
 }
@@ -208,7 +224,18 @@ function draw(event) {
     ctx.stroke();
     ctx.closePath();
 
-    let taskPerformed = { moveX: moveToX, moveY: moveToY, lineX: lineToX, lineY: lineToY, lastPencilwidth: pencilWidth, lastFontColor: fontColor, lastEraserWidth: eraserWidth, lastBoardColor: boardColor, wasPencil: isPencil, wasEraser: isEraser };
+    let taskPerformed = {
+        moveX: moveToX,
+        moveY: moveToY,
+        lineX: lineToX,
+        lineY: lineToY,
+        lastPencilwidth: pencilWidth,
+        lastFontColor: fontColor,
+        lastEraserWidth: eraserWidth,
+        lastBoardColor: boardColor,
+        wasPencil: isPencil,
+        wasEraser: isEraser
+    };
     lastTaskPerformed.push(taskPerformed);
 }
 
@@ -239,7 +266,18 @@ function drawEraser(event) {
     ctx.stroke();
     ctx.closePath();
 
-    let taskPerformed = { moveX: moveToX, moveY: moveToY, lineX: lineToX, lineY: lineToY, lastPencilwidth: pencilWidth, lastFontColor: fontColor, lastEraserWidth: eraserWidth, lastBoardColor: boardColor, wasPencil: isPencil, wasEraser: isEraser };
+    let taskPerformed = {
+        moveX: moveToX,
+        moveY: moveToY,
+        lineX: lineToX,
+        lineY: lineToY,
+        lastPencilwidth: pencilWidth,
+        lastFontColor: fontColor,
+        lastEraserWidth: eraserWidth,
+        lastBoardColor: boardColor,
+        wasPencil: isPencil,
+        wasEraser: isEraser
+    };
     lastTaskPerformed.push(taskPerformed);
 }
 
@@ -351,17 +389,17 @@ let introcard = document.querySelector('.introcard');
 let closeModalButton = document.querySelector('.close-button');
 let remembercheck = document.querySelector('#remembercheck');
 
-closeModalButton.addEventListener('click',closeintro);
+closeModalButton.addEventListener('click', closeintro);
 
-if(localStorage.getItem("introboxhide"))
-    introcard.style.visibility='hidden';
+if (localStorage.getItem("introboxhide"))
+    introcard.style.visibility = 'hidden';
 else
-    introcard.style.visibility='visible';
+    introcard.style.visibility = 'visible';
 
 function closeintro() {
-    introcard.style.visibility='hidden';
-    if(remembercheck.checked)
-        localStorage.setItem("introboxhide","true");
+    introcard.style.visibility = 'hidden';
+    if (remembercheck.checked)
+        localStorage.setItem("introboxhide", "true");
     console.log(localStorage.getItem("introboxhide"));
 }
 //end of introcard
@@ -382,19 +420,27 @@ canvasEl.addEventListener('mouseup', setPositionRange);
 // }
 
 function setPositionRange() {
-    let taskPerformed = { rangeX: x, rangeY: y, wasPencil: false, wasEraser: false };
+    let taskPerformed = {
+        rangeX: x,
+        rangeY: y,
+        wasPencil: false,
+        wasEraser: false
+    };
     lastTaskPerformed.push(taskPerformed);
 
-    let position = {x:x, y:y};
+    let position = {
+        x: x,
+        y: y
+    };
     positionRange.push(position);
 }
 
-function deletePositionRange(){
+function deletePositionRange() {
     //even - starting, odd - ending [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-    for(let i = 0; i < lastTaskPerformed.length; i++){
-        if(lastTaskPerformed[i].rangeX == positionRange[positionRange.length-2].x){
-            if(lastTaskPerformed[i].rangeY == positionRange[positionRange.length-2].y){
+    for (let i = 0; i < lastTaskPerformed.length; i++) {
+        if (lastTaskPerformed[i].rangeX == positionRange[positionRange.length - 2].x) {
+            if (lastTaskPerformed[i].rangeY == positionRange[positionRange.length - 2].y) {
                 // positionRange.pop();
                 // positionRange.pop();
                 indexRange = i;
@@ -403,7 +449,7 @@ function deletePositionRange(){
         }
     }
 
-    for(let i = 0; i < lastTaskPerformed.length - indexRange; i++){
+    for (let i = 0; i < lastTaskPerformed.length - indexRange; i++) {
         lastTaskPerformed.pop();
     }
 
@@ -444,3 +490,19 @@ function undo() {
 }
 
 //end of undo
+
+
+function lockStroke() {
+    sflag = 1;
+    backPencil.style.visibility = 'hidden';
+    strokeSize.style.visibility = "hidden";
+    pencilWidth=strokeSize.value;
+}
+
+function changeStroke() {
+    if (sflag == 1) {
+        sflag = 0;
+        return;
+    }
+    strokeSize.style.visibility = 'visible';
+}

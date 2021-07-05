@@ -132,7 +132,8 @@ button:active{
 }
 .pencile-back{
     background-color: rgba(0, 0, 0, 0.301);
-    z-index: 1200;
+    /* background-color: red; */
+    z-index: 1300;
     position: absolute;
     top: 0;
     left: 0;
