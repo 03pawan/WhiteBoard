@@ -120,6 +120,98 @@ button:active{
     width: 100%;
     visibility: hidden;
 }
+.stroke-size-selector{
+    visibility: hidden;
+    position: absolute;
+    top: 13vh ;
+    left: 14vh;
+    height: 5vh;
+    width: 10vh;
+    z-index: 1200;
+}
+.pencile-back{
+    background-color: rgba(0, 0, 0, 0.301);
+    z-index: 1200;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    visibility: hidden;
+}
+.eraser-stroke-selector{
+    visibility: hidden;
+    position: absolute;
+    top: 23vh ;
+    left: 14vh;
+    height: 5vh;
+    width: 10vh;
+    z-index: 1200;
+}
+.eraser-back{
+    background-color: rgba(0, 0, 0, 0.301);
+    z-index: 1200;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    visibility: hidden;
+}
+.shape-selector{
+    display: flex;
+    visibility: hidden;
+    position: absolute;
+    top: 28vh;
+    left: 13vh;
+    height: 34vh;
+    width: 12vh;
+    z-index: 1200;
+    background: #e0e0e0;
+    justify-content: space-around;
+    align-items: center;
+    border: 4px solid white;
+    border-radius: 18px;
+}
+.shape-button{
+    visibility: hidden;
+    position: absolute;
+   
+    height: 7vh;
+    width: 10vh;
+    z-index: 1200;
+    box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+}
+.shape-button:hover{
+    box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+}
+#shape-button1{
+    top: 29vh ;
+    left: 14vh;
+    font-size:xx-large;
+}
+
+#shape-button2{
+    
+    top: 41vh ;
+    left: 14vh;
+    
+}
+#shape-button3{
+    top: 53vh;
+    left: 14vh;
+   font-size:xx-large;
+}
+.shape-back{
+    background-color: rgba(0, 0, 0, 0.301);
+    z-index: 1200;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    visibility: hidden;
+}
 
 .bgcolor-selector{
     visibility: hidden;
