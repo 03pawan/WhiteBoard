@@ -104,7 +104,6 @@ button:active{
              -19px -19px 38px #0000ff; */
 }
 
-/*color selector*/
 .color-selector{
     visibility: hidden;
     position: absolute;
@@ -113,7 +112,7 @@ button:active{
 
 .cs-back {
     background-color: rgba(0, 0, 0, 0.301);
-    z-index: 100;
+    z-index: 1200;
     position: absolute;
     top: 0;
     left: 0;
@@ -121,7 +120,6 @@ button:active{
     width: 100%;
     visibility: hidden;
 }
-
 .stroke-size-selector{
     visibility: hidden;
     position: absolute;
@@ -134,20 +132,6 @@ button:active{
 .pencile-back{
     background-color: rgba(0, 0, 0, 0.301);
     z-index: 1200;
-=======
-/*color selector*/
-
-/*background color*/
-.bgcolor-selector{
-    visibility: hidden;
-    position: absolute;
-    left: 45px;
-}
-
-.bg-back {
-    background-color: rgba(0, 0, 0, 0.301);
-    z-index: 110;
-
     position: absolute;
     top: 0;
     left: 0;
@@ -155,7 +139,6 @@ button:active{
     width: 100%;
     visibility: hidden;
 }
-
 .eraser-stroke-selector{
     visibility: hidden;
     position: absolute;
@@ -168,14 +151,6 @@ button:active{
 .eraser-back{
     background-color: rgba(0, 0, 0, 0.301);
     z-index: 1200;
-=======
-/*background color*/
-
-/*introcard*/
-.introcard {
-    z-index: 1000;
-    border:1px solid red;
-
     position: absolute;
     top: 0;
     left: 0;
@@ -183,7 +158,6 @@ button:active{
     width: 100%;
     visibility: hidden;
 }
-
 .shape-selector{
     display: flex;
     visibility: hidden;
@@ -226,11 +200,6 @@ button:active{
 .shape-back{
     background-color: rgba(0, 0, 0, 0.301);
     z-index: 1200;
-
-
-.introback {
-    background-color: rgba(0, 0, 0, 0.301);
-
     position: absolute;
     top: 0;
     left: 0;
@@ -255,49 +224,3 @@ button:active{
     width: 100%;
     visibility: hidden;
 }
-
-}
-
-.introcarddetails {
-    background-color: white;
-    border-radius: 10px;
-    position: fixed;
-    height: 400px;
-    aspect-ratio: 1 / 1;
-    inset: 0;
-    margin: auto;
-}
-
-.modal-header {
-    padding: 10px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid black;
-  }
-  
-  .modal-header .title {
-    font-size: 1.25rem;
-    font-weight: bold;
-  }
-  
-  .modal-header .close-button {
-    cursor: pointer;
-    border: none;
-    outline: none;
-    background: none;
-    font-size: 1.25rem;
-    font-weight: bold;
-    box-shadow: 7px 4px 38px #bebebe;
-
-  }
-  
-  .modal-body, .remember {
-    padding: 10px 15px;
-  }
-
-  #rememberchecklabel {
-      padding-right: 5px;
-  }
-/*introcard*/
-
