@@ -119,8 +119,8 @@ function clearAllKeydown(event) {
     }
 }
 
-function pencilColorSelectorKeydown(event) {
-    if (event.key == "o" || event.key == "O") {
+function pencilColorSelectorKeydown(event){
+    if(event.key == "o" || event.key == "O"){
         colorChanger.click();
     }
 }
@@ -308,7 +308,6 @@ function changeColor() {
     colorSelector.style.visibility = 'visible';
     colorSelector.click();
     colorSelector.style.visibility = 'hidden';
-    defaultSetting();
 }
 //end of color picker
 
@@ -345,6 +344,27 @@ function backgroundColorSelector() {
 }
 
 //end of background
+
+
+//start of introcard
+let introcard = document.querySelector('.introcard');
+let closeModalButton = document.querySelector('.close-button');
+let remembercheck = document.querySelector('#remembercheck');
+
+closeModalButton.addEventListener('click',closeintro);
+
+if(localStorage.getItem("introboxhide"))
+    introcard.style.visibility='hidden';
+else
+    introcard.style.visibility='visible';
+
+function closeintro() {
+    introcard.style.visibility='hidden';
+    if(remembercheck.checked)
+        localStorage.setItem("introboxhide","true");
+    console.log(localStorage.getItem("introboxhide"));
+}
+//end of introcard
 
 //start of undo
 const undoBtnEl = document.querySelector("#undo");
