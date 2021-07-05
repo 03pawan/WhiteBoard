@@ -17,15 +17,23 @@
     <div style="display: block;">
         
         <div id="menu"> 
-        <button title="Pencil" id=""><i class="fas fa-pencil-alt"></i></button>
-            <button title="Eraser" id=""><i class="fas fa-eraser"></i></button>
+        <button title="Pencil" id="pencil-btn"><i class="fas fa-pencil-alt"></i></button>
+            <button title="Eraser" id="eraser-btn"><i class="fas fa-eraser"></i></button>
             <button title="Fill" id="" ><i class="fas fa-fill-drip"></i></button>
-            <button title="Shapes" id=""><i class="fas fa-shapes"></i></button>
+            <button title="Shapes" id="shapes-btn"><i class="fas fa-shapes"></i></button>
             <button title="Text" id=""><svg viewBox="0 0 24 24" width="14" height="14" stroke="black" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg></button>   
-            <button id="" title="color selector"><i class="fas fa-eye-dropper"></i></button>
-            <button id="" title="background color"><i class="fas fa-swatchbook"></i></button>
+            <button id="colorselector" title="color selector" >
+                <input type="color" class="color-selector">
+                <i class="fas fa-eye-dropper"></i>
+                <div class="cs-back"></div>
+            </button>
+            <button id="background-color-btn" title="background color">
+                <input type="color" class="bgcolor-selector">
+                <i class="fas fa-swatchbook"></i>
+                <div class="bg-back"></div>
+            </button>
             <button title="Sticker" id="" ><i class="fas fa-sticky-note"></i></button>
-            <button title="Clear All"id="" onclick="window.location.href = 'https://priyanshusingh305.github.io/WhiteBoard/ ';"><i class="fas fa-trash" ></i></button>     
+            <button title="Clear All"id="clear-all"><i class="fas fa-trash"></i></button>      
         </div>
 
     <canvas id="myCanvas"></canvas>    
