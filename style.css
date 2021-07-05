@@ -160,11 +160,11 @@ button:active{
 }
 .shape-selector{
     display: flex;
-    visibility: hidden;
+    /* visibility: hidden; */
     position: absolute;
     top: 28vh;
     left: 13vh;
-    height: 34vh;
+    height: 23vh;
     width: 12vh;
     z-index: 1200;
     background: #e0e0e0;
@@ -174,10 +174,10 @@ button:active{
     border-radius: 18px;
 }
 .shape-button{
-    visibility: hidden;
+    /* visibility: hidden; */
     position: absolute;
    
-    height: 7vh;
+    height: 9vh;
     width: 10vh;
     z-index: 1200;
     box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
@@ -188,20 +188,15 @@ button:active{
 #shape-button1{
     top: 29vh ;
     left: 14vh;
-    font-size:xx-large;
 }
 
 #shape-button2{
-    
+    image-resolution:inherit ;
     top: 41vh ;
     left: 14vh;
     
 }
-#shape-button3{
-    top: 53vh;
-    left: 14vh;
-   font-size:xx-large;
-}
+
 .shape-back{
     background-color: rgba(0, 0, 0, 0.301);
     z-index: 1200;
