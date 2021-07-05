@@ -7,7 +7,7 @@ const offsetHeight = document.querySelector('.navbar').clientHeight;
 const offsetWidth = document.querySelector('#menu').clientWidth;
 
 const canvasHeight = window.innerHeight - offsetHeight - 2;
-const canvasWidth = window.innerWidth - offsetWidth - 2
+const canvasWidth = window.innerWidth - offsetWidth -2;
 
 const pencilEl = document.querySelector("#pencil-btn");
 const eraserEl = document.querySelector("#eraser-btn");
