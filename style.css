@@ -160,7 +160,7 @@ button:active{
 }
 .shape-selector{
     display: flex;
-    /* visibility: hidden; */
+    visibility: hidden;
     position: absolute;
     top: 28vh;
     left: 13vh;
@@ -174,7 +174,7 @@ button:active{
     border-radius: 18px;
 }
 .shape-button{
-    /* visibility: hidden; */
+    visibility: hidden;
     position: absolute;
    
     height: 9vh;
