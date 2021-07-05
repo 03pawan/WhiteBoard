@@ -120,3 +120,20 @@ button:active{
     width: 100%;
     visibility: hidden;
 }
+
+.bgcolor-selector{
+    visibility: hidden;
+    position: absolute;
+    left: 45px;
+}
+
+.bg-back {
+    background-color: rgba(0, 0, 0, 0.301);
+    z-index: 1200;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    visibility: hidden;
+}
