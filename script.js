@@ -20,7 +20,6 @@ let isEraser = false;
 let isCircle = false;
 let isSquare = false;
 
-
 let pencilWidth = 1;
 let eraserWidth = 10;
 let pencilWidthMax = 25;
@@ -43,22 +42,6 @@ function defaultSetting(){
     isCircle = false;
     isSquare = true;
 }
-
-let pencilWidth = 1;
-let eraserWidth = 10;
-let pencilWidthMax = 25;
-let eraserWidhtMax = 70;
-let widthMin = 1;
-
-let circleRadius = 10;
-let squareDimension = 20;
-
-let fontColor = "#FF0000";
-let boardColor = "#bec2c1";
-
-// const offsetHeight = 30;
-// const offsetWidth = 40;
-
 
 function resize(){
     ctx.canvas.height = window.innerHeight - offsetHeight-2;
@@ -112,38 +95,21 @@ document.addEventListener('keydown', WidthModifyKeydown);
 document.addEventListener('keydown', WidthModifyKeydown);
 
 function pencilKeydown(event){
-
-clearEl.addEventListener('click', clearAll);
-
-document.addEventListener('keydown', Keydown);
-// document.addEventListener('keydown', eraserKeydown);
-// document.addEventListener('keydown', clearAllKeydown);
-// document.addEventListener('keydown', pencilColorSelectorKeydown);
-// document.addEventListener('keydown', backgroundColorSelectorKeydown);
-document.addEventListener('keydown', WidthModifyKeydown);
-document.addEventListener('keydown', WidthModifyKeydown);
-
-function Keydown(event){
-
     if(event.key == "P" || event.key == 'p'){
         isPencil = true;
         isEraser = false;
         isSquare = false;
         isCircle = false;
     }
-
 }
 
 function eraserKeydown(event){
-
-
     if(event.key == "E" || event.key == "e"){
         isPencil = false;
         isEraser = true;
         isSquare = false;
         isCircle = false;
     }
-
 }
 
 function clearAllKeydown(event){
@@ -159,33 +125,10 @@ function pencilColorSelectorKeydown(event){
 }
 
 function backgroundColorSelectorKeydown(event){
-
-    if(event.key == "C" || event.key == "c"){
-        clearAll();
-    }
-    if(event.key == "o" || event.key == "O"){
-        colorChanger.click();
-    }
-
     if(event.key == 'b' || event.key == "B"){
         backgroundColorEl.click();
     }
 }
-// function eraserKeydown(event){
-    
-// }
-
-// function clearAllKeydown(event){
-    
-
-// function pencilColorSelectorKeydown(event){
-    
-// }
-
-// function backgroundColorSelectorKeydown(event){
-    
-// }
-
 
 function WidthModifyKeydown(event){
     if(isPencil == true){
@@ -373,53 +316,3 @@ function backgroundColorSelector() {
 }
 
 //end of background
-
-
-let bgselectColor= () => bgBack.style.visibility = 'visible';
-
-backgroundColorEl.addEventListener('click', backgroundColorSelector);
-bgcolorChanger.addEventListener('click', bgselectColor);
-bgBack.addEventListener('click',bglockcolorf);
-
-function bglockcolorf() {
-    bgflag=1;
-    bgBack.style.visibility = 'hidden';
-    bgcolorChanger.style.visibility = "hidden";
-    boardColor = bgcolorChanger.value;
-    // resize();
-    ctx.fillStyle = boardColor;
-    ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
-}
-
-function backgroundColorSelector() {
-    if(bgflag==1){
-        bgflag=0;
-        return;
-    }    
-    bgcolorChanger.style.visibility = 'visible';
-    bgcolorChanger.click();
-    bgcolorChanger.style.visibility = 'hidden';
-}
-
-//end of background
-
-//start of introcard
-let introcard = document.querySelector('.introcard');
-let closeModalButton = document.querySelector('.close-button');
-let remembercheck = document.querySelector('#remembercheck');
-
-closeModalButton.addEventListener('click',closeintro);
-
-if(localStorage.getItem("introboxhide"))
-    introcard.style.visibility='hidden';
-else
-    introcard.style.visibility='visible';
-
-function closeintro() {
-    introcard.style.visibility='hidden';
-    if(remembercheck.checked)
-        localStorage.setItem("introboxhide","true");
-    console.log(localStorage.getItem("introboxhide"));
-}
-//end of introcard
-
