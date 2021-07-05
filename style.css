@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
+    font-family: 'Lexend Deca', sans-serif;
 }
 
 /* body{
@@ -188,13 +189,13 @@ button:active{
     box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
 }
 #shape-button1{
-    top: 29vh;
+    top: 44vh;
     left: 14vh;
 }
 
 #shape-button2{
     image-resolution:inherit ;
-    top: 38vh ;
+    top: 52vh ;
     left: 14vh;
     
 }
@@ -275,6 +276,8 @@ button:active{
     cursor: pointer;
     border: none;
     outline: none;
+    height: 40px;
+    width: 40px;
     background: none;
     font-size: 1.25rem;
     font-weight: bold;
@@ -284,6 +287,7 @@ button:active{
   
   .modal-body, .remember {
     padding: 10px 15px;
+    line-height: 30px;
   }
 
   #rememberchecklabel {
