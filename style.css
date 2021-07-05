@@ -187,13 +187,13 @@ button:active{
     box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
 }
 #shape-button1{
-    top: 29vh;
+    top: 44vh;
     left: 14vh;
 }
 
 #shape-button2{
     image-resolution:inherit ;
-    top: 38vh ;
+    top: 52vh ;
     left: 14vh;
     
 }
