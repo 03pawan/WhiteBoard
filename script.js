@@ -78,49 +78,52 @@ shapesEl.addEventListener('click', ()=>{
 
 clearEl.addEventListener('click', clearAll);
 
-document.addEventListener('keydown', pencilKeydown);
-document.addEventListener('keydown', eraserKeydown);
-document.addEventListener('keydown', clearAllKeydown);
-document.addEventListener('keydown', pencilColorSelectorKeydown);
-document.addEventListener('keydown', backgroundColorSelectorKeydown);
+document.addEventListener('keydown', Keydown);
+// document.addEventListener('keydown', eraserKeydown);
+// document.addEventListener('keydown', clearAllKeydown);
+// document.addEventListener('keydown', pencilColorSelectorKeydown);
+// document.addEventListener('keydown', backgroundColorSelectorKeydown);
 document.addEventListener('keydown', WidthModifyKeydown);
 document.addEventListener('keydown', WidthModifyKeydown);
 
-function pencilKeydown(event){
+function Keydown(event){
     if(event.key == "P" || event.key == 'p'){
         isPencil = true;
         isEraser = false;
         isSquare = false;
         isCircle = false;
     }
-}
-
-function eraserKeydown(event){
     if(event.key == "E" || event.key == "e"){
         isPencil = false;
         isEraser = true;
         isSquare = false;
         isCircle = false;
     }
-}
-
-function clearAllKeydown(event){
     if(event.key == "C" || event.key == "c"){
         clearAll();
     }
-}
-
-function pencilColorSelectorKeydown(event){
     if(event.key == "o" || event.key == "O"){
         colorChanger.click();
     }
-}
-
-function backgroundColorSelectorKeydown(event){
     if(event.key == 'b' || event.key == "B"){
         backgroundColorEl.click();
     }
 }
+
+// function eraserKeydown(event){
+    
+// }
+
+// function clearAllKeydown(event){
+    
+
+// function pencilColorSelectorKeydown(event){
+    
+// }
+
+// function backgroundColorSelectorKeydown(event){
+    
+// }
 
 function WidthModifyKeydown(event){
     if(isPencil == true){
@@ -306,3 +309,23 @@ function backgroundColorSelector() {
 }
 
 //end of background
+
+//start of introcard
+let introcard = document.querySelector('.introcard');
+let closeModalButton = document.querySelector('.close-button');
+let remembercheck = document.querySelector('#remembercheck');
+
+closeModalButton.addEventListener('click',closeintro);
+
+if(localStorage.getItem("introboxhide"))
+    introcard.style.visibility='hidden';
+else
+    introcard.style.visibility='visible';
+
+function closeintro() {
+    introcard.style.visibility='hidden';
+    if(remembercheck.checked)
+        localStorage.setItem("introboxhide","true");
+    console.log(localStorage.getItem("introboxhide"));
+}
+//end of introcard
