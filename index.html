@@ -15,14 +15,37 @@
         <button title="Undo" id="undo"style=" float: right;"><i class="fas fa-undo"></i></button>
     </div>
     <div style="display: block;">
-        
-        <div id="menu"> 
-        <button title="Pencil" id="pencil-btn"><i class="fas fa-pencil-alt"></i></button>
-            <button title="Eraser" id="eraser-btn"><i class="fas fa-eraser"></i></button>
-            <button title="Fill" id="" ><i class="fas fa-fill-drip"></i></button>
-            <button title="Shapes" id="shapes-btn"><i class="fas fa-shapes"></i></button>
-            <button title="Text" id=""><svg viewBox="0 0 24 24" width="14" height="14" stroke="black" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg></button>   
-            <button id="colorselector" title="color selector" >
+
+        <div id="menu">
+            <button title="Pencil" id="pencil-btn">
+                <input type="number" class="stroke-size-selector">
+                <i class="fas fa-pencil-alt"></i>
+                <div class="pencile-back"></div>
+            </button>
+            <button title="Eraser" id="eraser-btn">
+                <input type="number" class="eraser-stroke-selector">
+                <i class="fas fa-eraser">
+                    <div class="eraser-back"></div>
+                </i></button>
+            <button title="Fill" id=""><i class="fas fa-fill-drip"></i></button>
+            <button title="Shapes" id="shapes-btn">
+                <i class="fas fa-shapes"></i>
+                <span class="shape-selector">
+                    <button class="shape-button" title="circle" id="shape-button1"> <i
+                            class="far fa-circle"></i></button>
+                    <button class="shape-button" title="rectangle" id="shape-button2"><svg width="20" height="14">
+                            <rect width="20" height="14" style="fill:black;"></rect>
+                        </svg></button>
+                </span>
+                <div class="shape-back"></div>
+            </button>
+            <button title="Text" id=""><svg viewBox="0 0 24 24" width="14" height="14" stroke="black" stroke-width="2"
+                    fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+                    <polyline points="4 7 4 4 20 4 20 7"></polyline>
+                    <line x1="9" y1="20" x2="15" y2="20"></line>
+                    <line x1="12" y1="4" x2="12" y2="20"></line>
+                </svg></button>
+            <button id="colorselector" title="color selector">
                 <input type="color" class="color-selector">
                 <i class="fas fa-eye-dropper"></i>
                 <div class="cs-back"></div>

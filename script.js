@@ -30,10 +30,18 @@ let circleRadius = 10;
 let squareDimension = 20;
 
 let fontColor = "#FF0000";
-let boardColor = "#bec2c1";
+// let boardColor = "#bec2c1";
+let boardColor = "#292928";
 
 // const offsetHeight = 30;
 // const offsetWidth = 40;
+
+function defaultSetting(){
+    isPencil = true;
+    isEraser = false;
+    isCircle = false;
+    isSquare = true;
+}
 
 function resize(){
     ctx.canvas.height = window.innerHeight - offsetHeight-2;
@@ -78,52 +86,48 @@ shapesEl.addEventListener('click', ()=>{
 
 clearEl.addEventListener('click', clearAll);
 
-document.addEventListener('keydown', Keydown);
-// document.addEventListener('keydown', eraserKeydown);
-// document.addEventListener('keydown', clearAllKeydown);
-// document.addEventListener('keydown', pencilColorSelectorKeydown);
-// document.addEventListener('keydown', backgroundColorSelectorKeydown);
+document.addEventListener('keydown', pencilKeydown);
+document.addEventListener('keydown', eraserKeydown);
+document.addEventListener('keydown', clearAllKeydown);
+document.addEventListener('keydown', pencilColorSelectorKeydown);
+document.addEventListener('keydown', backgroundColorSelectorKeydown);
 document.addEventListener('keydown', WidthModifyKeydown);
 document.addEventListener('keydown', WidthModifyKeydown);
 
-function Keydown(event){
+function pencilKeydown(event){
     if(event.key == "P" || event.key == 'p'){
         isPencil = true;
         isEraser = false;
         isSquare = false;
         isCircle = false;
     }
+}
+
+function eraserKeydown(event){
     if(event.key == "E" || event.key == "e"){
         isPencil = false;
         isEraser = true;
         isSquare = false;
         isCircle = false;
     }
+}
+
+function clearAllKeydown(event){
     if(event.key == "C" || event.key == "c"){
         clearAll();
     }
+}
+function pencilColorSelectorKeydown(event){
     if(event.key == "o" || event.key == "O"){
         colorChanger.click();
     }
+}
+
+function backgroundColorSelectorKeydown(event){
     if(event.key == 'b' || event.key == "B"){
         backgroundColorEl.click();
     }
 }
-
-// function eraserKeydown(event){
-    
-// }
-
-// function clearAllKeydown(event){
-    
-
-// function pencilColorSelectorKeydown(event){
-    
-// }
-
-// function backgroundColorSelectorKeydown(event){
-    
-// }
 
 function WidthModifyKeydown(event){
     if(isPencil == true){
@@ -306,6 +310,7 @@ function backgroundColorSelector() {
     bgcolorChanger.style.visibility = 'visible';
     bgcolorChanger.click();
     bgcolorChanger.style.visibility = 'hidden';
+    defaultSetting();
 }
 
 //end of background
