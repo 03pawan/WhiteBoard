@@ -229,7 +229,7 @@ button:active{
 /*introcard*/
 .introcard {
     z-index: 1000;
-    border:1px solid red;
+    /* border:1px solid red; */
     position: absolute;
     top: 0;
     left: 0;
