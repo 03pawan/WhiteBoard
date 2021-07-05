@@ -48,6 +48,7 @@ canvas {
     left: 12vh;
     top: 10vh;
     cursor: crosshair;
+    background-color: white;
 }
 
 button i {
@@ -211,6 +212,17 @@ button:active{
     visibility: hidden;
 }
 
+.bgshape {
+    background-color: rgba(0, 0, 0, 0.301);
+    z-index: 110;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    visibility: hidden;
+}
+
 .bgcolor-selector{
     visibility: hidden;
     position: absolute;
@@ -297,3 +309,9 @@ button:active{
       visibility: visible;
   }
 /*introcard*/
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}

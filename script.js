@@ -21,7 +21,7 @@ const clearEl = document.querySelector("#clear-all");
 const shapesEl = document.querySelector("#shapes-btn");
 const backgroundColorEl = document.querySelector("#background-color-btn");
 
- let sflag=0;
+let sflag = 0;
 let isPencil = true;
 let isEraser = false;
 let isCircle = false;
@@ -30,7 +30,7 @@ let isSquare = false;
 let pencilWidth = 1;
 let eraserWidth = 10;
 let pencilWidthMax = 25;
-let eraserWidhtMax = 70;
+let eraserWidthMax = 70;
 let widthMin = 1;
 
 let circleRadius = 10;
@@ -47,7 +47,7 @@ function defaultSetting() {
     isPencil = true;
     isEraser = false;
     isCircle = false;
-    isSquare = true;
+    isSquare = false;
 }
 
 function resize() {
@@ -70,8 +70,7 @@ function setPos(event) {
 }
 
 //pencil-slectors
-let strokeSize = document.querySelector('.stroke-size-selector');
-let backPencil = document.querySelector('.pencile-back');
+
 pencilEl.addEventListener('click', () => {
     isPencil = true;
     isEraser = false;
@@ -79,6 +78,7 @@ pencilEl.addEventListener('click', () => {
     isCircle = false;
     changeStroke();
 });
+
 
 
 // colorChanger.addEventListener('click', changeColor);
@@ -90,15 +90,17 @@ eraserEl.addEventListener('click', () => {
     isEraser = true;
     isSquare = false;
     isCircle = false;
+    changeStrokeEraser();
 })
 
 //have to change below function depending upon the given input shape.
-shapesEl.addEventListener('click', () => {
-    isPencil = false;
-    isEraser = false;
-    isSquare = false;
-    isCircle = true;
-})
+
+// shapesEl.addEventListener('click', () => {
+//     isPencil = false;
+//     isEraser = false;
+//     isSquare = false;
+//     isCircle = true;
+// })
 
 clearEl.addEventListener('click', clearAll);
 
@@ -186,6 +188,20 @@ function WidthModifyKeydown(event) {
             circleRadius -= 1;
             if (circleRadius <= 10) {
                 circleRadius = 10;
+            }
+        }
+    }
+
+    if (isSquare == true) {
+        if (event.key == '+') {
+            squareDimension += 1;
+            if (squareDimension >= 90) {
+                squareDimension = 90;
+            }
+        } else if (event.key == '-') {
+            squareDimension -= 1;
+            if (squareDimension <= 10) {
+                squareDimension = 10;
             }
         }
     }
@@ -288,36 +304,7 @@ function clearAll() {
     lastTaskPerformed = [];
 }
 
-canvasEl.addEventListener('mousedown', shapeCircle)
 
-function shapeCircle(event) {
-    if (event.buttons !== 1)
-        return;
-    if (isCircle == false)
-        return;
-    ctx.beginPath();
-    ctx.lineWidth = 1;
-    setPos(event);
-    ctx.arc(x, y, circleRadius, 0, Math.PI * 2);
-    ctx.strokeStyle = "black";
-    ctx.stroke();
-    ctx.closePath();
-}
-
-function shapeSquare(event) {
-    if (event.buttons !== 1)
-        return;
-    if (isSquare == false)
-        return;
-
-    ctx.beginPath();
-    ctx.lineWidth = 1;
-    setPos(event);
-    ctx.rect(x, y, squareDimension, squareDimension);
-    ctx.strokeStyle = "black";
-    ctx.stroke();
-    ctx.closePath();
-}
 
 //start of color picker
 let colorSelector = document.querySelector('.color-selector');
@@ -491,12 +478,24 @@ function undo() {
 
 //end of undo
 
+//pencil-stroke start
+let strokeSize = document.querySelector('.stroke-size-selector');
+let backPencil = document.querySelector('.pencile-back');
+let selectStroke = () => backPencil.style.visibility = 'visible';
+
+strokeSize.addEventListener('click', selectStroke);
+backPencil.addEventListener('click', lockStroke);
 
 function lockStroke() {
     sflag = 1;
     backPencil.style.visibility = 'hidden';
     strokeSize.style.visibility = "hidden";
-    pencilWidth=strokeSize.value;
+    if (strokeSize.value > pencilWidthMax){
+        strokeSize.value=pencilWidthMax;
+        pencilWidth = pencilWidthMax;
+    }
+    else
+        pencilWidth = strokeSize.value;
 }
 
 function changeStroke() {
@@ -505,4 +504,122 @@ function changeStroke() {
         return;
     }
     strokeSize.style.visibility = 'visible';
+   
+    if (strokeSize.value > pencilWidthMax)
+         strokeSize.placeholder = pencilWidthMax;
+    else
+         strokeSize.placeholder = pencilWidth;
+}
+//pencil-stroke end
+
+//eraser-stroke start
+
+let strokeSizeEraser = document.querySelector('.eraser-stroke-selector');
+let backEraser = document.querySelector('.eraser-back');
+let selectStrokeEraser = () => backEraser.style.visibility = 'visible';
+
+strokeSizeEraser.addEventListener('click', selectStrokeEraser);
+backEraser.addEventListener('click', lockStrokeEraser);
+
+function lockStrokeEraser() {
+    sflag = 1;
+    backEraser.style.visibility = 'hidden';
+    strokeSizeEraser.style.visibility = "hidden";
+    if (strokeSizeEraser.value > eraserWidthMax){
+        strokeSizeEraser.value=eraserWidthMax;
+        eraserWidth = eraserWidthMax;
+    }
+    else
+        eraserWidth = strokeSizeEraser.value;
+}
+
+function changeStrokeEraser() {
+    if (sflag == 1) {
+        sflag = 0;
+        return;
+    }
+    strokeSizeEraser.style.visibility = 'visible';
+   
+    if (strokeSizeEraser.value >eraserWidthMax)
+         strokeSizeEraser.placeholder = eraserWidthMax;
+    else
+         strokeSizeEraser.placeholder = eraserWidth;
+}
+
+//eraser-stroke end
+
+//shape btn 
+let shapebtn = document.querySelector('#shapes-btn');
+let shapebtn1 = document.querySelector('#shape-button1');
+let shapebtn2 = document.querySelector('#shape-button2');
+let shapeselector = document.querySelector('.shape-selector');
+let bgshape = document.querySelector('.bgshape');
+let bgshapeflag; 
+
+shapebtn.addEventListener('click',shapefunc);
+bgshape.addEventListener('click',closeshape);
+canvasEl.addEventListener('mousedown',shapeCircle);
+canvasEl.addEventListener('mousedown',shapeSquare);
+
+shapebtn1.addEventListener('click', ()=>{
+    isPencil = false;
+    isEraser = false;
+    isSquare = false;
+    isCircle = true;
+})
+
+shapebtn2.addEventListener('click', ()=>{
+    isPencil = false;
+    isEraser = false;
+    isSquare = true;
+    isCircle = false;
+})
+
+
+function shapeCircle(event) {
+    if (event.buttons !== 1)
+        return;
+    if (isCircle == false)
+        return;
+    ctx.beginPath();
+    ctx.lineWidth = 1;
+    setPos(event);
+    ctx.arc(x, y, circleRadius, 0, Math.PI * 2);
+    ctx.strokeStyle = fontColor;
+    ctx.stroke();
+    ctx.closePath();
+}
+
+function shapeSquare(event) {
+    if (event.buttons !== 1)
+        return;
+    if (isSquare == false)
+        return;
+
+    ctx.beginPath();
+    ctx.lineWidth = 1;
+    setPos(event);
+    ctx.rect(x, y, squareDimension, squareDimension);
+    ctx.strokeStyle = fontColor;
+    ctx.stroke();
+    ctx.closePath();
+}
+
+function closeshape() {
+    bgshapeflag=1;
+    shapebtn1.style.visibility='hidden';
+    shapebtn2.style.visibility='hidden';
+    shapeselector.style.visibility='hidden';
+    bgshape.style.visibility='hidden';
+}
+
+function shapefunc() {
+    if (bgshapeflag == 1) {
+        bgshapeflag = 0;
+        return;
+    }
+    shapebtn1.style.visibility='visible';
+    shapebtn2.style.visibility='visible';
+    shapeselector.style.visibility='visible';
+    bgshape.style.visibility='visible';
 }
